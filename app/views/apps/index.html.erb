@@ -5,13 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>App</th>
       <th>App name</th>
-      <th>Partner</th>
+      <th>Shopify partner</th>
       <th>Shopify app</th>
       <th>Primary token</th>
       <th>Secondary token</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +17,11 @@
   <tbody>
     <% @apps.each do |app| %>
       <tr>
-        <td><%= app.app_id %></td>
         <td><%= app.app_name %></td>
-        <td><%= app.partner_id %></td>
+        <td><%= app.shopify_partner_id %></td>
         <td><%= app.shopify_app_id %></td>
         <td><%= app.primary_token %></td>
         <td><%= app.secondary_token %></td>
-        <td><%= app.user_id %></td>
         <td><%= link_to 'Show', app %></td>
         <td><%= link_to 'Edit', edit_app_path(app) %></td>
         <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>

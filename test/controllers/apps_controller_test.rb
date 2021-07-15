@@ -18,7 +18,7 @@ class AppsControllerTest < ActionController::TestCase
 
   test "should create app" do
     assert_difference('App.count') do
-      post :create, app: { app_id: @app.app_id, app_name: @app.app_name, partner_id: @app.partner_id, primary_token: @app.primary_token, secondary_token: @app.secondary_token, shopify_app_id: @app.shopify_app_id, user_id: @app.user_id }
+      post :create, app: { app_name: @app.app_name, primary_token: @app.primary_token, secondary_token: @app.secondary_token, shopify_app_id: @app.shopify_app_id, shopify_partner_id: @app.shopify_partner_id }
     end
 
     assert_redirected_to app_path(assigns(:app))
@@ -35,7 +35,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test "should update app" do
-    patch :update, id: @app, app: { app_id: @app.app_id, app_name: @app.app_name, partner_id: @app.partner_id, primary_token: @app.primary_token, secondary_token: @app.secondary_token, shopify_app_id: @app.shopify_app_id, user_id: @app.user_id }
+    patch :update, id: @app, app: { app_name: @app.app_name, primary_token: @app.primary_token, secondary_token: @app.secondary_token, shopify_app_id: @app.shopify_app_id, shopify_partner_id: @app.shopify_partner_id }
     assert_redirected_to app_path(assigns(:app))
   end
 

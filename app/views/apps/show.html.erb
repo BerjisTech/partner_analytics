@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>App:</strong>
-  <%= @app.app_id %>
-</p>
-
-<p>
   <strong>App name:</strong>
   <%= @app.app_name %>
 </p>
 
 <p>
-  <strong>Partner:</strong>
-  <%= @app.partner_id %>
+  <strong>Shopify partner:</strong>
+  <%= @app.shopify_partner_id %>
 </p>
 
 <p>
@@ -28,11 +23,6 @@
 <p>
   <strong>Secondary token:</strong>
   <%= @app.secondary_token %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @app.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_app_path(@app) %> |

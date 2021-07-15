@@ -69,6 +69,6 @@ class AppsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_params
-      params.require(:app).permit(:app_id, :app_name, :partner_id, :shopify_app_id, :primary_token, :secondary_token, :user_id)
+      params.require(:app).permit(:app_name, :shopify_partner_id, :shopify_app_id, :primary_token, :secondary_token, :user_id)
     end
 end
