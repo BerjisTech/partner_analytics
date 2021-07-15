@@ -1,5 +1,7 @@
 class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, except:[:index, :show]
+  # before_action :correct_user, only:[:show, :update, :edit, :destroy]
 
   # GET /apps
   # GET /apps.json
@@ -14,7 +16,8 @@ class AppsController < ApplicationController
 
   # GET /apps/new
   def new
-    @app = App.new
+    # @app = App.new
+    @app = current_user.apps.build
   end
 
   # GET /apps/1/edit
@@ -24,7 +27,8 @@ class AppsController < ApplicationController
   # POST /apps
   # POST /apps.json
   def create
-    @app = App.new(app_params)
+    # @app = App.new(app_params)
+    @app = current_user.apps.build(app_params)
 
     respond_to do |format|
       if @app.save
@@ -58,6 +62,12 @@ class AppsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to apps_url, notice: 'App was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def correct_user
+    if(current_user.id != params[:id])
+      redirect_to apps_path, notice: "Not authorized to perform this action"
     end
   end
 
