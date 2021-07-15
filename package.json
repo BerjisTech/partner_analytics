@@ -1,0 +1,9 @@
+{
+  "name": "Partner_Analytics",
+  "version": "1.0.0",
+  "description": "Shopify analytics for multiple apps",
+  "main": "index.js",
+  "repository": "ltvsaasgrowth.com",
+  "author": "Benedict Ouma",
+  "license": "MIT"
+}
