@@ -17,42 +17,41 @@ ActiveRecord::Schema.define(version: 20210716132751) do
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
-    t.text     "app_name"
-    t.integer  "shopify_partner_id"
-    t.integer  "shopify_app_id"
-    t.text     "primary_token"
-    t.text     "secondary_token"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "user_id"
+    t.text "app_name"
+    t.integer "shopify_partner_id"
+    t.integer "shopify_app_id"
+    t.text "primary_token"
+    t.text "secondary_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer  "app_id"
-    t.text     "shop"
-    t.string   "event"
-    t.text     "date"
-    t.text     "email"
+    t.integer "app_id"
+    t.text "shop"
+    t.string "event"
+    t.text "date"
+    t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "token"
+    t.text "token"
   end
 
   add_index "events", ["app_id"], name: "index_events_on_app_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["user_id"], name: "index_users_on_user_id", using: :btree
-
 end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class AppsControllerTest < ActionController::TestCase
   setup do
@@ -17,7 +17,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test "should create app" do
-    assert_difference('App.count') do
+    assert_difference("App.count") do
       post :create, app: { app_name: @app.app_name, primary_token: @app.primary_token, secondary_token: @app.secondary_token, shopify_app_id: @app.shopify_app_id, shopify_partner_id: @app.shopify_partner_id }
     end
 
@@ -40,7 +40,7 @@ class AppsControllerTest < ActionController::TestCase
   end
 
   test "should destroy app" do
-    assert_difference('App.count', -1) do
+    assert_difference("App.count", -1) do
       delete :destroy, id: @app
     end
 

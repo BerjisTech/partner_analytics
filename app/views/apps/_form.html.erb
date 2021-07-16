@@ -33,8 +33,8 @@
     <%= f.text_area :secondary_token, class: "form-control form-control-sm", placeholder: "Secondar Access Token" %>
     <%= f.label :secondary_token %>
 </div>
-<%= f.number_field :user_id, id: :user_id, value:current_user.id, type: :hidden %>
+<%= f.number_field :user_id, id: :user_id, value: current_user.id, type: :hidden %>
 <div class="actions">
-    <%= f.submit class: "btn btn-outline-primary btn-md"%>
+    <%= f.submit class: "btn btn-outline-primary btn-md" %>
 </div>
 <% end %>

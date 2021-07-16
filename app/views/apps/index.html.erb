@@ -22,9 +22,9 @@
         <td class="align-middle"><%= app.shopify_app_id %></td>
         <td class="align-middle"><%= app.primary_token %></td>
         <td class="align-middle"><%= app.secondary_token %></td>
-        <td class="align-middle"><%= link_to 'visibility', app, class: "material-icons nav-link btn btn-outline-info btn-sm" %></td>
-        <td class="align-middle"><%= link_to 'edit_note', edit_app_path(app.id), class: "material-icons nav-link btn btn-outline-primary btn-sm" %></td>
-        <td class="align-middle"><%= link_to 'delete', app, method: :delete, data: { confirm: 'Are you sure?' }, class: "material-icons nav-link btn btn-outline-danger btn-sm" %></td>
+        <td class="align-middle"><%= link_to "visibility", app, class: "material-icons nav-link btn btn-outline-info btn-sm" %></td>
+        <td class="align-middle"><%= link_to "edit_note", edit_app_path(app.id), class: "material-icons nav-link btn btn-outline-primary btn-sm" %></td>
+        <td class="align-middle"><%= link_to "delete", app, method: :delete, data: { confirm: "Are you sure?" }, class: "material-icons nav-link btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New App', new_app_path, class: "btn btn-outline-primary btn-md btn-hover" %>
+<%= link_to "New App", new_app_path, class: "btn btn-outline-primary btn-md btn-hover" %>
