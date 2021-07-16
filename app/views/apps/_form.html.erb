@@ -1,38 +1,40 @@
 <%= form_for(@app) do |f| %>
-  <% if @app.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+<% if @app.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
 
-      <ul>
-      <% @app.errors.full_messages.each do |message| %>
+    <ul>
+        <% @app.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :app_name %><br>
-    <%= f.text_area :app_name %>
-  </div>
-  <div class="field">
-    <%= f.label :shopify_partner_id %><br>
-    <%= f.number_field :shopify_partner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :shopify_app_id %><br>
-    <%= f.number_field :shopify_app_id %>
-  </div>
-  <div class="field">
-    <%= f.label :primary_token %><br>
-    <%= f.text_area :primary_token %>
-  </div>
-  <div class="field">
-    <%= f.label :secondary_token %><br>
-    <%= f.text_area :secondary_token %>
-  </div>
-  <%= f.number_field :user_id, id: :user_id, value:current_user.id, type: :hidden %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field form-group form-floating">
+    <%= f.text_field :app_name, class: "form-control form-control-sm", placeholder: "App Name", required: "true" %>
+    <%= f.label :app_name %>
+</div>
+<div class="row g-3">
+    <div class="field form-group form-floating col">
+        <%= f.text_field :shopify_partner_id, class: "form-control form-control-sm", placeholder: "Partner ID", required: "true" %>
+        <%= f.label :shopify_partner_id %>
+    </div>
+    <div class="field form-group form-floating col">
+        <%= f.text_field :shopify_app_id, class: "form-control form-control-sm", placeholder: "App ID", required: "true" %>
+        <%= f.label :shopify_app_id %>
+    </div>
+</div>
+<div class="field form-group form-floating">
+    <%= f.text_area :primary_token, class: "form-control form-control-sm", placeholder: "Primary Access Token", required: "true" %>
+    <%= f.label :primary_token %>
+</div>
+<div class="field form-group form-floating">
+    <%= f.text_area :secondary_token, class: "form-control form-control-sm", placeholder: "Secondar Access Token" %>
+    <%= f.label :secondary_token %>
+</div>
+<%= f.number_field :user_id, id: :user_id, value:current_user.id, type: :hidden %>
+<div class="actions">
+    <%= f.submit class: "btn btn-outline-primary btn-md"%>
+</div>
 <% end %>

@@ -1,12 +1,12 @@
 class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, except:[:index, :show]
-  # before_action :correct_user, only:[:show, :update, :edit, :destroy]
+  before_action :correct_user, only:[:show, :update, :edit, :destroy]
 
   # GET /apps
   # GET /apps.json
   def index
-    @apps = App.all
+    # @apps = App.all
+    @apps = current_user.apps
   end
 
   # GET /apps/1
@@ -66,9 +66,8 @@ class AppsController < ApplicationController
   end
 
   def correct_user
-    if(current_user.id != params[:id])
-      redirect_to apps_path, notice: "Not authorized to perform this action"
-    end
+    @user = current_user.apps.find_by(id: params[:id])
+    redirect_to apps_path, notice: "Not authorized to perform this action" if @user.nil?
   end
 
   private

@@ -3,28 +3,28 @@
 <h1>Listing Apps</h1>
 
 <table class="table table-responsive table-hover">
-  <thead>
+  <thead class="table-dark">
     <tr>
-      <th>App name</th>
-      <th>Shopify partner</th>
-      <th>Shopify app</th>
-      <th>Primary token</th>
-      <th>Secondary token</th>
-      <th colspan="3"></th>
+      <th scope="col">App name</th>
+      <th scope="col">Shopify partner</th>
+      <th scope="col">Shopify app</th>
+      <th scope="col">Primary token</th>
+      <th scope="col">Secondary token</th>
+      <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @apps.each do |app| %>
-      <tr>
-        <td><%= app.app_name %></td>
-        <td><%= app.shopify_partner_id %></td>
-        <td><%= app.shopify_app_id %></td>
-        <td><%= app.primary_token %></td>
-        <td><%= app.secondary_token %></td>
-        <td><%= link_to 'Show', app %></td>
-        <td><%= link_to 'Edit', edit_app_path(app) %></td>
-        <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="align-middle">
+        <td class="align-middle"><%= app.app_name %></td>
+        <td class="align-middle"><%= app.shopify_partner_id %></td>
+        <td class="align-middle"><%= app.shopify_app_id %></td>
+        <td class="align-middle"><%= app.primary_token %></td>
+        <td class="align-middle"><%= app.secondary_token %></td>
+        <td class="align-middle"><%= link_to 'visibility', app, class: "material-icons nav-link btn btn-outline-info btn-sm" %></td>
+        <td class="align-middle"><%= link_to 'edit_note', edit_app_path(app.id), class: "material-icons nav-link btn btn-outline-primary btn-sm" %></td>
+        <td class="align-middle"><%= link_to 'delete', app, method: :delete, data: { confirm: 'Are you sure?' }, class: "material-icons nav-link btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New App', new_app_path %>
+<%= link_to 'New App', new_app_path, class: "btn btn-outline-primary btn-md btn-hover" %>
